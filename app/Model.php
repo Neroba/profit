@@ -13,7 +13,7 @@ namespace App;
  *
  * @author Администратор
  */
-class Model {
+abstract class Model {
     const TABLE = ''; 
 
     public static function findAll(){
