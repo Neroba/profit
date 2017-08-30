@@ -13,10 +13,10 @@ namespace App;
  *
  * @author Администратор
  */
-class Db {
+class Db extends Singleton{
     //put your code here
     protected $dbh;
-    public function __construct() {
+    protected function __construct() {
         $this->dbh = new \PDO("mysql:host=localhost;dbname=newDB","root","Pfk.nbyj");
 //        echo 'Hello, DB!';
     }

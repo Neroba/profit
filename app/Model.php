@@ -17,11 +17,11 @@ abstract class Model {
     const TABLE = ''; 
 
     public static function findAll(){
-        $db = new \App\Db();
+        //$db = new \App\Db();
+        $db = Db::instance();
         return $db->query(
                 'SELECT * FROM '.static::TABLE, 
                 static::class
                 );
     }
-    //put your code here
 }
