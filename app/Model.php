@@ -15,6 +15,7 @@ namespace App;
  */
 abstract class Model {
     const TABLE = ''; 
+    public $id;
 
     public static function findAll(){
         //$db = new \App\Db();
@@ -23,5 +24,31 @@ abstract class Model {
                 'SELECT * FROM '.static::TABLE, 
                 static::class
                 );
+    }
+    
+    public function isnew() {
+        return empty($this->id);
+    }
+    
+    public function insert(){
+        if (!$this->isnew()){
+            return;
+        }
+        $columns = [];
+        $values = [];
+        foreach ($this as $k => $v) {
+            if ('id' == $k){
+                continue;
+            }
+            $columns[] = $k;
+            $values[':'.$k] = $v;
+        }
+        var_dump($values);
+        $sql = 'INSERT INTO ' . static::TABLE . ''
+                . '(' . implode(',',$columns) . ') '
+                . 'VALUES (' . implode(',', array_keys($values)) . ')';
+        $db = Db::instance();
+        $db->execute($sql, $values);
+   //     die();
     }
 }
