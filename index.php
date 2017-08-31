@@ -3,7 +3,12 @@
 require __DIR__.'/autoload.php';
 
 $view =new \App\View;
-$view->users = \App\Models\User::findAll();
+$view->title = 'Мой крутой сайт!';  // создеам св-во title и записываем в него значение
+$view->desc = 'Сайт про новости';  // создеам св-во desc и записываем в него значение
+$view->users = \App\Models\User::findAll(); // создеам св-во users и записываем в него всех пользователей
+
+echo count($view);
+die;
 
 //echo $view->render(__DIR__.'/App/templates/index.php');
 $view->display(__DIR__.'/App/templates/index.php');

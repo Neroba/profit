@@ -4,14 +4,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Test</title>
+    <title><?php echo $title; ?></title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
   </head>
   
     <h1>Пользователи</h1>
    
-    <?php foreach ($this->users as $user) { ?>
+    <?php foreach ($users as $user) { ?>
     <div class="panel-default">
         <div class="panel-heading"><?php echo $user->name; ?></div>
         <div class="panel-heading"><?php echo $user->email; ?></div>
