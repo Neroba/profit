@@ -15,17 +15,28 @@ namespace App;
  */
 class Db {
     use Singleton;
-    //put your code here
     protected $dbh;
     protected function __construct() {
         $this->dbh = new \PDO("mysql:host=localhost;dbname=newDB","root","Pfk.nbyj");
 //        echo 'Hello, DB!';
     }
+    /**
+     * 
+     * @param type $sql
+     * @param type $params
+     * @return type
+     */
     public function execute($sql, $params = []) {
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute($params);
         return $res;
     }
+    /**
+     * 
+     * @param string $sql
+     * @param type $class
+     * @return type
+     */
     public function query($sql,$class) {
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute();

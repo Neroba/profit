@@ -1,6 +1,15 @@
 <?php
 
-include __DIR__.'/App/templates/index.php';
+require __DIR__.'/autoload.php';
+
+$view =new \App\View;
+$view->users = \App\Models\User::findAll();
+
+//echo $view->render(__DIR__.'/App/templates/index.php');
+$view->display(__DIR__.'/App/templates/index.php');
+
+//$users = \App\Models\User::findAll();
+//include __DIR__.'/App/templates/index.php';
 
 /*use App\Models\User;
 use App\Model;
