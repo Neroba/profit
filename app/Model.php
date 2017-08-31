@@ -8,11 +8,6 @@
 
 namespace App;
 
-/**
- * Description of Model
- *
- * @author Администратор
- */
 abstract class Model {
     const TABLE = ''; 
     public $id;
@@ -43,7 +38,7 @@ abstract class Model {
             $columns[] = $k;
             $values[':'.$k] = $v;
         }
-        var_dump($values);
+    //    var_dump($values);
         $sql = 'INSERT INTO ' . static::TABLE . ''
                 . '(' . implode(',',$columns) . ') '
                 . 'VALUES (' . implode(',', array_keys($values)) . ')';

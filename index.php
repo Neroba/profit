@@ -1,16 +1,20 @@
 <?php
 
-use App\Models\User;
+include __DIR__.'/App/templates/index.php';
+
+/*use App\Models\User;
 use App\Model;
 
 require __DIR__.'/autoload.php';
+
+
 
 $user = new User();
 $user->name = 'Vasja';
 $user->email = 'v@pupkin.ru';
 $user->insert();
 
-/*
+
 $users = User::findall();
 
 //var_dump($users);
